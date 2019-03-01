@@ -1,0 +1,22 @@
+version: '2'
+
+services: 
+  simplek8sserver:
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    image: simplek8server:1.0.1
+    environment: 
+    - PORT=9090
+    ports: 
+    - "9090:9090"
+
+  simple-k8s-client:
+    build:
+      context: .
+      dockerfile: client/Dockerfile
+    image: simplek8client:1.0.1      
+    depends_on:
+    - simplek8sserver
+    environment: 
+    - SERVICE_URL=http://simplek8server:9090/info
