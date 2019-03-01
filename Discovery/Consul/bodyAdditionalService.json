@@ -1,0 +1,25 @@
+{
+    "consul": {
+        "ID": "consul",
+        "Service": "consul",
+        "Tags": [],
+        "Address": "",
+        "Port": 8300,
+        "EnableTagOverride": false,
+        "CreateIndex": 0,
+        "ModifyIndex": 0
+    },
+    "gin-web-01": {
+        "ID": "gin-web-01",
+        "Service": "gin-web",
+        "Tags": [
+            "cloudnativego",
+            "v1"
+        ],
+        "Address": "gin-web-01",
+        "Port": 8080,
+        "EnableTagOverride": false,
+        "CreateIndex": 0,
+        "ModifyInex":
+    }
+}

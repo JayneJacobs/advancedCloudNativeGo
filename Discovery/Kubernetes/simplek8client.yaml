@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: simplek8client
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        io.kompose.service: simplek8client
+    spec:
+      containers:
+        - name:  simplek8client
+          image:  "simplek8client:1.0.1"
+          env:
+            - name:  SERVICE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name:  simplek8client
+                  key: service.url

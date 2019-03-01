@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:  
+    io.kompose.service: simplek8server
+  name: simplek8server
+spec:
+  type:  NodePort
+  ports:
+  - port:  9090
+  selector:
+      io.kompose.service: simplek8server
+

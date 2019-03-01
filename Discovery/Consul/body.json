@@ -1,0 +1,18 @@
+{
+    "ID": "gin-web-01",
+    "Name": "gin-web",
+    "Tags": [
+        "cloudnativego",
+        "v1"
+    ],
+    "Address": "gin-web-01",
+    "Port": 8080,
+    "EnableTagOverrride": false,
+    "check": {
+        "id": "ping",
+        "name": "HTTP API on port 8080",
+        "http": "http://gin-web-01:8080/ping",
+        "interval": "5s",
+        "timeout": 
+    }
+}

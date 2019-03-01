@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name:  simplek8server
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        io.kompose.service:  simplek8server
+    spec:
+      containers:
+      - name:  simplek8server
+        image:  "simplek8server:1.0.1"
+        ports:
+        - containerPort:  9090
+        env:
+          - name:  PORT
+            value:  "9090"
+
+        readinessProbe:
+            httpGet:
+              path: /info
+              port: 9090
+            initialDelaySeconds: 5
+            timeoutSeconds: 5
+        livenessProbe:
+            httpGet:
+              path: /info
+              port: 9090
+            initialDelaySeconds: 10
+            timeoutSeconds: 5

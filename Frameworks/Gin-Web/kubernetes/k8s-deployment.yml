@@ -1,0 +1,45 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name:  gin-web
+  labels:
+    name:  gin-web
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app:  gin-web
+        tier: service
+    spec:
+      containers:
+      - name:  gin-web
+        image:  "gin-web:1.0.1"
+        ports:
+        - containerPort:  9090
+        env:
+        - name:  PORT
+          value:  "9090"       
+        resources:
+          requests:
+            cpu: "125m"
+            memory: "64Mi"
+          limits:
+            cpu: "250m"
+            memory: "128Mi"
+
+        livenessProbe:
+          httpGet:
+            path: /ping
+            port: 9090
+          initialDelaySeconds: 5
+          timeoutSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /ping
+            port: 9090
+          initialDelaySeconds: 5
+          timeoutSeconds: 5
+         
+
+

@@ -1,0 +1,17 @@
+resolve.conf
+iproute 
+dns entry server.com 
+
+host table resolve.conf
+$ grep host /etc/nsswitch.conf
+ hosts: files dns
+ files first
+
+ DNS names 
+ ping and the name.  ns lookup
+
+different endpoints local dns resolution
+
+# IP Domain ShortHost
+192.168.0.193 example.com example
+hosts:      files dns
